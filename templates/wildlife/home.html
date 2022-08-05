@@ -1,0 +1,88 @@
+{%extends 'base.html'%}
+{% load static%}
+{%block content%}
+        
+    <div id="carouselExampleDark" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="3000">
+            <div class="carouser-img">
+                <img src="{% static 'images/tiger.jpg'%}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+            <div class="carouser-img">
+                <img src="{% static 'images/wolves.jpg'%}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carouser-img">
+                <img src="{% static 'images/elephant.jpg'%}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+            </div>
+        </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="container" style="background-color: #f4f3ee;" id="description">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 col-sm-12 pt-md-5 p-2">
+                <p style="text-align: justify;">In this project we are going to work on perspectives in Deep Learning for Wildlife monitoring. The project is interdisciplinary and involves the study of animal ecology as well as computer science. Traditionally, the wildlife is monitored with the help of human field workers for counting the animals, patrolling the forests areas or using the camera traps. Nowadays, the data from the different sources is too large to incorporate the human force. So, we believe in such scenario a Deep Learning model could solve the problem. The model itself will maintain more accuracy than the humans as well as it will also do this in lesser time. This will help to fight against illegal poaching of endangered species, preserve the biodiversity and monitor other activities in the animal world. With the help of this project we aim to unleash the power of Machine Learning and Deep Learning to have the better understanding of the animal world.</p> 
+            </div>
+            <hr>
+        </div>
+    </div>
+    
+    <div id="upload-image">
+        <div class=" text-center p-0" role="alert" style="background-color: #edf6f9;">
+            <h2>Upload Your Image</h2>
+        </div>
+        <div class="center">
+            <form method="POST" action="{% url 'wildlife:homepage'%}" enctype="multipart/form-data">
+                {%csrf_token%}
+                <div class="form-input">
+                    <div class="preview">
+                        {%if validation_error%}
+                            <p class="text-center text-danger">{{validation_error}}</p>
+                        {%endif%}
+                      <img id="file-ip-1-preview">
+                    </div>
+                        <label for="file-ip-1">Upload Image</label>
+                        <input type="file" id="file-ip-1" name="animal" accept="image/*" onchange="showPreview(event);">
+                        <br/>
+                        <label for="file-upload" >Submit</label>
+                        <input type="submit" value="submit" id="file-upload">
+                  </div>
+            </form>
+        </div> 
+    </div>
+   
+        
+{%endblock%}
+
+{%block footer%}
+    <p class="text-center" id="footer">&copy;2022</p>
+{%endblock footer%}
+
