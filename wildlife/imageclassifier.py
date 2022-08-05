@@ -10,7 +10,7 @@ from keras.models import Sequential
 from keras.optimizers import Adam
 from keras.models import load_model
 from pathlib import Path,WindowsPath
-import urllib.parse
+
 
 
 
