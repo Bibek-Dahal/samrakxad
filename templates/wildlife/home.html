@@ -72,37 +72,41 @@
                         <label for="file-ip-1">Upload Image</label>
                         <br/>
                         <input type="file" id="file-ip-1" name="animal" accept="image/*" onchange="showPreview(event);">
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="file-upload" >Button1</label>
-                        <input  type="submit" value="submit" id="file-upload" name="button1" onclick="handleClick(event)">
-                            </div>
-                            <div class="col-6">
-                                <label for="file-upload1" >Button2</label>
-                                <input  type="submit" value="submit" name="button2" id="file-upload1" onclick="handleClick(event)">
-                            </div>
-                        </div> 
+                        
+                        <label for="file-upload" >Classify Image</label>
+                        <input  type="submit" value="submit" id="file-upload">
+                           
                   </div>
             </form>
         </div> 
     </div>
-<script>
-    const handleClick = (event)=>{
-        //event.preventDefault()
-        let name = event.target.name
-        console.log(event.target.name)
-        let form = document.getElementById('img-submit-form')
-        if(name === "button1"){
-            console.log('hello')
-            form.submit()
-        }else{
-            console.log(event.target.name)
-            form.action = "/abcd"
-            //form.submit()
-        }
-       
-    }
-</script>
+    {%if list_of_names%}
+    <div class="container mt-5">
+        <div class="row text-center">
+            <h1 class=" text-center p-0" role="alert" style="background-color: #edf6f9;">Following Results Are Obtained</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Animal Name</th>
+                <th scope="col">Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {%for dict in list_of_names%}
+                    <tr>
+                        <td><p>{{dict.name}}</p></td>
+                        <td><p>{{dict.percentage}}</p></td>  
+                    </tr>
+                {%endfor%}
+
+            </tbody>
+        </table>
+            
+        </div>
+    </div>
+   {%endif%}
+</div>
         
 {%endblock%}
 
