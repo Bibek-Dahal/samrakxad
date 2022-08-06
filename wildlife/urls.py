@@ -2,5 +2,6 @@ app_name = 'wildlife'
 from django.urls import path
 from . import views
 urlpatterns = [ 
-    path('',views.ImageUploadView.as_view(),name='homepage')
+    path('',views.ImageUploadView.as_view(),name='homepage'),
+    path('run-decetro/',views.RunDetector.as_view(),name='run_detector')
 ]

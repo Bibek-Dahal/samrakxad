@@ -60,7 +60,7 @@
             <h2>Upload Your Image</h2>
         </div>
         <div class="center">
-            <form method="POST" action="{% url 'wildlife:homepage'%}" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'wildlife:homepage'%}" enctype="multipart/form-data" id="img-submit-form">
                 {%csrf_token%}
                 <div class="form-input">
                     <div class="preview">
@@ -70,15 +70,39 @@
                       <img id="file-ip-1-preview">
                     </div>
                         <label for="file-ip-1">Upload Image</label>
-                        <input type="file" id="file-ip-1" name="animal" accept="image/*" onchange="showPreview(event);">
                         <br/>
-                        <label for="file-upload" >Submit</label>
-                        <input type="submit" value="submit" id="file-upload">
+                        <input type="file" id="file-ip-1" name="animal" accept="image/*" onchange="showPreview(event);">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="file-upload" >Button1</label>
+                        <input  type="submit" value="submit" id="file-upload" name="button1" onclick="handleClick(event)">
+                            </div>
+                            <div class="col-6">
+                                <label for="file-upload1" >Button2</label>
+                                <input  type="submit" value="submit" name="button2" id="file-upload1" onclick="handleClick(event)">
+                            </div>
+                        </div> 
                   </div>
             </form>
         </div> 
     </div>
-   
+<script>
+    const handleClick = (event)=>{
+        //event.preventDefault()
+        let name = event.target.name
+        console.log(event.target.name)
+        let form = document.getElementById('img-submit-form')
+        if(name === "button1"){
+            console.log('hello')
+            form.submit()
+        }else{
+            console.log(event.target.name)
+            form.action = "/abcd"
+            //form.submit()
+        }
+       
+    }
+</script>
         
 {%endblock%}
 
