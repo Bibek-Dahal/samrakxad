@@ -6,6 +6,7 @@ cachetools==5.2.0
 certifi==2022.6.15
 charset-normalizer==2.1.0
 cycler==0.11.0
+dj-database-url==1.0.0
 Django==4.1
 flatbuffers==1.12
 fonttools==4.34.4
@@ -30,6 +31,7 @@ opt-einsum==3.3.0
 packaging==21.3
 Pillow==9.2.0
 protobuf==3.19.4
+psycopg2-binary==2.9.3
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pyparsing==3.0.9
@@ -49,6 +51,8 @@ tensorflow-io-gcs-filesystem==0.26.0
 termcolor==1.1.0
 typing-extensions==4.3.0
 urllib3==1.26.11
+waitress==2.1.2
 Werkzeug==2.2.1
+whitenoise==6.2.0
 wrapt==1.14.1
 zipp==3.8.1
