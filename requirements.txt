@@ -5,6 +5,7 @@ backports.zoneinfo==0.2.1
 cachetools==5.2.0
 certifi==2022.6.15
 charset-normalizer==2.1.0
+dj-database-url==1.0.0
 Django==4.1
 flatbuffers==1.12
 gast==0.4.0
