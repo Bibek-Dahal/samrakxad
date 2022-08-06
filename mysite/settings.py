@@ -130,4 +130,4 @@ STATIC_ROOT = BASE_DIR/'static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-CSRF_TRUSTED_ORIGINS = ['https://aangaldwp.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://samrakxad.herokuapp.com']
